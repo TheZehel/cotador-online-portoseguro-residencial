@@ -28,16 +28,53 @@ cpfField.addEventListener("input", function () {
   //}
 });
 
-const numeroCasa = document.getElementById("numero");
+//Aplica Mascaras nos Inputs
+$(document).ready(function () {
+  $(".datanascimento").mask("0000-00-00", {
+      translation: {
+          0: {
+              pattern: /[0-9]/,
+          },
+      },
+      pattern:
+          /^[0-9]{4}-(1[0-2]{1}|0[0-9]{1})-([0-2]{1}[0-9]{1}|3[0-1]{1})/,
+  });
+  $(".numerotelefone").mask("(00) 00000-0000", {
+      translation: {
+          0: {
+              pattern: /^[0-9]{1,2}/,
+          },
+      },
+  });
+});
 
-numeroCasa.addEventListener("input", function () {
-  let numero = numeroCasa.value;
+// Etapa -3 Adiciona paramêtros da Cobertura de Incêndio
+$(document).ready(function () {
+  var slider = document.getElementById("slider-cobertura");
+  var valueField = document.getElementById("valorcoberturaincendio");
 
-  numero = numero.replace(/\D/g, ""); 
+  noUiSlider.create(slider, {
+      start: [30000],
+      range: {
+          min: [10000],
+          max: [1000000000],
+      },
+      step: 1000,
+      format: {
+          to: function (value) {
+              return parseInt(value);
+          },
+          from: function (value) {
+              return parseInt(value);
+          },
+      },
+  });
 
-  numero = numero.replace(/^(\d{4})$/, "$1");
-
-  numeroCasa.value = numero;
-
-  const numeroCasaRegex = /^[0-9]{1,4}$/;
-})
+  slider.noUiSlider.on("update", function (values, handle) {
+      valueField.value =
+          "R$ " +
+          parseInt(values[handle]).toLocaleString("pt-br", {
+              minimumFractionDigits: 2,
+          });
+  });
+});
