@@ -7,6 +7,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/src/css/custom.css" />
 
     <!--Javascript-->
@@ -183,29 +184,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@tensorflow/tfjs-fetch"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-i18n/1.12.1/jquery-ui-i18n.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="/src/js/app.js"></script>
     <script src="/src/js/viaCep.js"></script>
-
-    <!--Script que Avança as Etapas do formulário-->
-    <script>
-        $(document).ready(function () {
-            // Ao clicar em "Próxima etapa"
-            $(".next-step").click(function () {
-                var currentStep = $(this).closest(".form-step");
-                var nextStep = currentStep.next(".form-step");
-                currentStep.hide();
-                nextStep.show();
-            });
-
-            // Ao clicar em "Etapa anterior"
-            $(".prev-step").click(function () {
-                var currentStep = $(this).closest(".form-step");
-                var prevStep = currentStep.prev(".form-step");
-                currentStep.hide();
-                prevStep.show();
-            });
-        });
-    </script>
 </body>
 
 </html>

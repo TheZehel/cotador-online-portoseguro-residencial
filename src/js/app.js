@@ -1,3 +1,21 @@
+$(document).ready(function () {
+  // Ao clicar em "Próxima etapa"
+  $(".next-step").click(function () {
+      var currentStep = $(this).closest(".form-step");
+      var nextStep = currentStep.next(".form-step");
+      currentStep.hide();
+      nextStep.show();
+  });
+
+  // Ao clicar em "Etapa anterior"
+  $(".prev-step").click(function () {
+      var currentStep = $(this).closest(".form-step");
+      var prevStep = currentStep.prev(".form-step");
+      currentStep.hide();
+      prevStep.show();
+  });
+});
+
 // selecione o campo de CPF
 const cpfField = document.getElementById("cpf");
 
@@ -76,5 +94,29 @@ $(document).ready(function () {
           parseInt(values[handle]).toLocaleString("pt-br", {
               minimumFractionDigits: 2,
           });
+  });
+});
+
+//Função que traduz o DatePicker e converte para o formato internacional.
+$(function() {
+  $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+  $("#datanascimento").datepicker({
+      dateFormat: 'dd/mm/yy', // Define o formato da data
+      changeMonth: true, // Permite a mudança do mês
+      changeYear: true, // Permite a mudança do ano
+      yearRange: '-100:+0', // Define o range de anos
+      maxDate: new Date(), // Define a data máxima como a data atual
+      dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], // Define os nomes dos dias da semana
+      dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'], // Define os nomes abreviados dos dias da semana
+      monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], // Define os nomes dos meses
+      monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], // Define os nomes abreviados dos meses
+      onSelect: function() {
+          var date = $(this).datepicker('getDate');
+          var year = date.getFullYear();
+          var month = date.getMonth() + 1;
+          var day = date.getDate();
+          var formattedDate = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+          $(this).val(formattedDate);
+      }
   });
 });
