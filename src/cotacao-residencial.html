@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário de três etapas</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/css/custom.css" />
+
+    <!--Javascript-->
+</head>
+
+<body>
+    <!-- Container Formulário-->
+    <div class="container col-md-8 mx-auto">
+        <form action="#" id="form" method="POST">
+            <div>
+                <!-- Inicio da Etapa 1 -->
+                <div id="step-1" class="form-step">
+                    <h2 class="text-center mt-8">Para Iniciar Preencha Seus Dados:</h2>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cpf">CPF: </label>
+                                <input type="text" class="form-control col" id="cpf" name="cpf" required minlength="11"
+                                    maxlength="14" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" class="form-control col nome" id="nome" name="nome" minlength="1"
+                                    maxlength="160" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="numerotelefone">Celular ou Telefone:</label>
+                                <input type="text" class="form-control col numerotelefone" id="numerotelefone"
+                                    name="numerotelefone" minlength="10" maxlength="11" placeholder="(DDD) 00000-0000"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="tipotelefone">Tipo de Telefone</label>
+                                <select class="form-control" id="tipotelefone">
+                                    <option value="0">Celular</option>
+                                    <option value="1">fixo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="datanascimento">Data de Nascimento</label>
+                                <input type="text" class="form-control col datanascimento" id="datanascimento"
+                                    name="datanascimento" minlength="10" maxlength="10" placeholder="Ano/Mês/Dia"
+                                    required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary next-step" id="next-step" style="width: 100%">
+                        Iniciar Cotação
+                    </button>
+                </div>
+                <!-- Fim da Etapa 1-->
+
+                <!-- Etapa 2 -->
+                <div id="step-2" style="display: none" class="form-step">
+                    <h2 class="text-center">Dados de Endereço do Imóvel</h2>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cep">Cep:</label>
+                                <input type="text" class="form-control col cep" id="cep" name="cep" minlength="8"
+                                    maxlength="8" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="logradouro">Endereço:</label>
+                                <input type="text" class="form-control col logradouro" id="logradouro" name="logradouro"
+                                    minlength="1" maxlength="200" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="tipo">Tipo de Residência</label>
+                                <select class="form-control tipo" id="tipo">
+                                    <option value="rua">Rua</option>
+                                    <option value="avenida">Avenida</option>
+                                    <option value="praca">Praça</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="numero">Nº do Imóvel</label>
+                                <input type="number" class="form-control col numero" id="numero" name="numero"
+                                    minlength="1" maxlength="9999" pattern="^[0-9]{1,4}$" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" class="form-control col bairro" id="bairro" name="bairro"
+                                    minlength="1" maxlength="40" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="cidade">Cidade:</label>
+                                <input type="text" class="form-control col cidade" id="cidade" name="cidade"
+                                    minlength="1" maxlength="40" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uf">Estado (UF):</label>
+                            <input type="text" class="form-control col uf" id="uf" name="uf" required />
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary prev-step">
+                        Etapa anterior
+                    </button>
+                    <button type="button" class="btn btn-primary next-step">
+                        Avançar
+                    </button>
+                </div>
+                <!-- Fim da Etapa 2-->
+
+                <!-- Etapa 3 -->
+                <div id="step-3" style="display: none" class="form-step">
+                    <h2 class="text-center">
+                        Agora Você Pode Personalizar o Seu Seguro
+                    </h2>
+                    <!-- Input Cobertura de Incêndio -->
+                    <div class="form-group">
+                        <label for="valorcoberturaincendio">Cobertura de Incêndio:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control valorcoberturaincendio" id="valorcoberturaincendio"
+                                readonly />
+                            <div class="input-group-append">
+                                <span class="input-group-text">R$</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div id="slider-cobertura"></div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary prev-step">
+                        Etapa anterior
+                    </button>
+                    <button type="submit" class="btn btn-success submit-form">
+                        Enviar formulário
+                    </button>
+                </div>
+                <!-- Fim da Etapa 3-->
+            </div>
+        </form>
+    </div>
+    <!-- Fim Container Formulário-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@tensorflow/tfjs-fetch"></script>
+    <script src="/src/js/validaInputs.js"></script>
+
+    <!--Script que Avança as Etapas do formulário-->
+    <script>
+        $(document).ready(function () {
+            // Ao clicar em "Próxima etapa"
+            $(".next-step").click(function () {
+                var currentStep = $(this).closest(".form-step");
+                var nextStep = currentStep.next(".form-step");
+                currentStep.hide();
+                nextStep.show();
+            });
+
+            // Ao clicar em "Etapa anterior"
+            $(".prev-step").click(function () {
+                var currentStep = $(this).closest(".form-step");
+                var prevStep = currentStep.prev(".form-step");
+                currentStep.hide();
+                prevStep.show();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#cel").mask("(00) 0000-0000");
+        });
+    </script>
+    <!-- Fim do Script que Avança as Etapas do formulário -->
+
+    <!--Api de Preenchimento do Via Cep-->
+    <script>
+        // função que preenche os campos com as informações do endereço
+        function preencherCamposEndereco(dados) {
+            document.querySelector("#logradouro").value = dados.logradouro;
+            document.querySelector("#bairro").value = dados.bairro;
+            document.querySelector("#cidade").value = dados.localidade;
+            document.querySelector("#uf").value = dados.uf;
+        }
+
+        // função que limpa os campos do endereço
+        function limparCamposEndereco() {
+            document.querySelector("#logradouro").value = "";
+            document.querySelector("#bairro").value = "";
+            document.querySelector("#cidade").value = "";
+            document.querySelector("#uf").value = "";
+        }
+
+        // evento que é disparado ao preencher o campo de CEP
+        document.querySelector("#cep").addEventListener("blur", function () {
+            // obtém o valor do CEP digitado
+            var cep = this.value.replace(/\D/g, "");
+
+            // se o CEP não tiver sido digitado corretamente
+            if (cep.length != 8) {
+                limparCamposEndereco();
+                return;
+            }
+
+            // chama a API do ViaCEP para obter as informações do endereço
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://viacep.com.br/ws/" + cep + "/json/");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    var dados = JSON.parse(xhr.responseText);
+                    preencherCamposEndereco(dados);
+                } else {
+                    limparCamposEndereco();
+                }
+            };
+            xhr.send();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".datanascimento").mask("0000-00-00", {
+                translation: {
+                    0: {
+                        pattern: /[0-9]/,
+                    },
+                },
+                pattern:
+                    /^[0-9]{4}-(1[0-2]{1}|0[0-9]{1})-([0-2]{1}[0-9]{1}|3[0-1]{1})/,
+            });
+            $(".numerotelefone").mask("(00) 00000-0000", {
+                translation: {
+                    0: {
+                        pattern: /^[0-9]{1,2}/,
+                    },
+                },
+            });
+        });
+    </script>
+    <!-- Fim da Api de Preenchimento do Via Cep-->
+
+    <!-- Inputs de Range-->
+    <script>
+        //Adiciona paramêtros da Cobertura de Incêndio
+        $(document).ready(function () {
+            var slider = document.getElementById("slider-cobertura");
+            var valueField = document.getElementById("valorcoberturaincendio");
+
+            noUiSlider.create(slider, {
+                start: [30000],
+                range: {
+                    min: [10000],
+                    max: [1000000000],
+                },
+                step: 1000,
+                format: {
+                    to: function (value) {
+                        return parseInt(value);
+                    },
+                    from: function (value) {
+                        return parseInt(value);
+                    },
+                },
+            });
+
+            slider.noUiSlider.on("update", function (values, handle) {
+                valueField.value =
+                    "R$ " +
+                    parseInt(values[handle]).toLocaleString("pt-br", {
+                        minimumFractionDigits: 2,
+                    });
+            });
+        });
+      //Adiciona parâmetros
+    </script>
+    <!-- Fim do Inputs de Range-->
+</body>
+
+</html>
