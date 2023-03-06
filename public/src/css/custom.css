@@ -1,11 +1,25 @@
-/* CSS for the form */
-.container {
-  margin-top: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+.background-image {
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Estilos do Formulário */
+.container-form {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 150px;
   border: 1px solid #313131;
   padding: 25px;
   border-radius: 8px;
-  width: 50%;
-  box-shadow: -2px 3px 4px 0px rgba(0,0,0,0.74);;
+  width: 30%;
+  box-shadow: 1px 3px 1px 0px rgba(44, 44, 44, 0.185);;
 }
 
 .form-group {
@@ -20,8 +34,9 @@ input[type="text"], input[type="number"], select.form-control {
   font-size: 16px;
 }
 
+/* Botões e Inputs*/
 .btn-primary, .btn-secondary {
-  border-radius: 0;
+  border-radius: 2;
   font-size: 16px;
   font-weight: bold;
 }
@@ -37,12 +52,14 @@ input[type="text"], input[type="number"], select.form-control {
 }
 
 .btn-secondary {
-  background-color: #6c757d;
+  color: #3b3b3b;
+  background-color: #ffffff;
   border-color: #6c757d;
 }
 
 .btn-secondary:hover {
-  background-color: #5a6268;
+  color: #313131;
+  background-color: #ffffff;
   border-color: #545b62;
 }
 
@@ -59,8 +76,8 @@ input[type=number] {
 }
 
 #slider-cobertura {
-  height: 10px;
-  margin-top: 10px;
+  height: 5px;
+  margin-top: 5px;
 }
 #slider-cobertura .noUi-connect {
   background: #007bff;
@@ -69,7 +86,7 @@ input[type=number] {
   width: 20px;
   height: 20px;
   background: #007bff;
-  border: none;
+  border-radius: 50px;
   box-shadow: none;
   margin-top: -5px;
 }
@@ -82,7 +99,7 @@ input[type=number] {
   text-align: center;
 }
 .input-group-text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -91,4 +108,3 @@ input[type=number] {
     width: 50%;
   }
 }
-
