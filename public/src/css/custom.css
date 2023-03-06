@@ -120,3 +120,12 @@ input[type=number] {
     width: 50%;
   }
 }
+
+.form-range-count {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #495057;
+}

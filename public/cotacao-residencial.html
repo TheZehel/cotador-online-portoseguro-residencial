@@ -187,19 +187,18 @@
                                         Agora Você Pode Personalizar o Seu Seguro
                                     </h2>
                                     <!-- Input Cobertura de Incêndio -->
-                                    <div class="form-group">
-                                        <label for="valorcoberturaincendio">Cobertura de Incêndio:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control valorcoberturaincendio"
-                                                id="valorcoberturaincendio" readonly />
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">R$</span>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col">
+                                          <div class="form-group">
+                                            <label for="customRange1" class="form-label">Cobertura de Incêndio</label>
+                                            <input type="range" class="form-range" id="customRange1">
+                                            <span class="form-range-count">R$ <span id="valor-cobertura">0</span></span>
+                                          </div>
                                         </div>
-                                        <br />
-                                        <div id="slider-cobertura"></div>
-                                    </div>
-
+                                      </div>
+                                    
+                                    
+                                
                                     <button type="button" class="btn btn-secondary prev-step prev-step-3">
                                         Etapa anterior
                                     </button>
@@ -208,7 +207,7 @@
                                     </button>
                                 </div>
                                 <!-- Fim da Etapa 3-->
-                            </div>
+                                </div>
                         </form>
                     </div>
                     <!-- Fim Container Formulário-->
@@ -228,6 +227,16 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="./src/js/app.js"></script>
     <script src="./src/js/viaCep.js"></script>
+
+    <script>
+      var slider = document.getElementById("customRange1");
+var output = document.getElementById("valor-cobertura");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+    </script>
 
     <script>
 
