@@ -11,30 +11,32 @@
     <link rel="stylesheet" href="./src/css/custom.css" />
 
     <!--Javascript-->
-    
+
 </head>
 
 <body>
-    
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Prime Secure</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Item1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Item2</a>
-                  </li>
-                </ul>
-              </div>
+                <a class="navbar-brand" href="#">Prime Secure</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Item1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Item2</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <div class="container bg-gradiente">
@@ -189,16 +191,18 @@
                                     <!-- Input Cobertura de Incêndio -->
                                     <div class="row">
                                         <div class="col">
-                                          <div class="form-group">
-                                            <label for="customRange1" class="form-label">Cobertura de Incêndio</label>
-                                            <input type="range" class="form-range" id="customRange1">
-                                            <span class="form-range-count">R$ <span id="valor-cobertura">0</span></span>
-                                          </div>
+                                            <div class="form-group">
+                                                <label for="customRange1" class="form-label">Cobertura de
+                                                    Incêndio</label>
+                                                <input type="range" class="form-range" id="customRange1">
+                                                <span class="form-range-count">R$ <span
+                                                        id="valor-cobertura">0</span></span>
+                                            </div>
                                         </div>
-                                      </div>
-                                    
-                                    
-                                
+                                    </div>
+
+
+
                                     <button type="button" class="btn btn-secondary prev-step prev-step-3">
                                         Etapa anterior
                                     </button>
@@ -207,7 +211,7 @@
                                     </button>
                                 </div>
                                 <!-- Fim da Etapa 3-->
-                                </div>
+                            </div>
                         </form>
                     </div>
                     <!-- Fim Container Formulário-->
@@ -229,13 +233,13 @@
     <script src="./src/js/viaCep.js"></script>
 
     <script>
-      var slider = document.getElementById("customRange1");
-var output = document.getElementById("valor-cobertura");
-output.innerHTML = slider.value;
+        var slider = document.getElementById("customRange1");
+        var output = document.getElementById("valor-cobertura");
+        output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
     </script>
 
     <script>
