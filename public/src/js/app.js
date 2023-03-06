@@ -1,19 +1,25 @@
-$(document).ready(function () {
-  // Ao clicar em "Próxima etapa"
-  $(".next-step").click(function () {
-      var currentStep = $(this).closest(".form-step");
-      var nextStep = currentStep.next(".form-step");
-      currentStep.hide();
-      nextStep.show();
-  });
+$(document).ready(function() {
+    // Ao clicar no botão "next-step", avança para a próxima etapa do formulário
+    $(".next-step").click(function() {
+        var currentStep = $(this).closest(".form-step");
+        var nextStep = currentStep.next(".form-step");
+        if (nextStep.length > 0) {
+            currentStep.removeClass("active").fadeOut(250, function() {
+                nextStep.addClass("active").fadeIn(250);
+            });
+        }
+    });
 
-  // Ao clicar em "Etapa anterior"
-  $(".prev-step").click(function () {
-      var currentStep = $(this).closest(".form-step");
-      var prevStep = currentStep.prev(".form-step");
-      currentStep.hide();
-      prevStep.show();
-  });
+    // Ao clicar no botão "prev-step", volta para a etapa anterior do formulário
+    $(".prev-step").click(function() {
+        var currentStep = $(this).closest(".form-step");
+        var prevStep = currentStep.prev(".form-step");
+        if (prevStep.length > 0) {
+            currentStep.removeClass("active").fadeOut(250, function() {
+                prevStep.addClass("active").fadeIn(250);
+            });
+        }
+    });
 });
 
 // selecione o campo de CPF

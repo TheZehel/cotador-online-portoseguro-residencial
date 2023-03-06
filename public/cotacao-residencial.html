@@ -11,176 +11,212 @@
     <link rel="stylesheet" href="./src/css/custom.css" />
 
     <!--Javascript-->
+    
 </head>
 
 <body>
-
-    <div class="background-img"></div>
-
-    <!-- Container Formulário-->
-    <div class="container container-form col-md-8 mx-auto">
-        <form action="#" id="form" method="POST">
-            <div>
-                <!-- Inicio da Etapa 1 -->
-                <div id="step-1" class="form-step">
-                    <h2 class="text-center mt-8">Para Iniciar Preencha Seus Dados:</h2>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="cpf">CPF: </label>
-                                <input type="text" class="form-control col" id="cpf" name="cpf" required minlength="11"
-                                    maxlength="14" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="nome">Nome:</label>
-                                <input type="text" class="form-control col nome" id="nome" name="nome" minlength="1"
-                                    maxlength="160" required />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="numerotelefone">Celular ou Telefone:</label>
-                                <input type="text" class="form-control col numerotelefone" id="numerotelefone"
-                                    name="numerotelefone" minlength="10" maxlength="11" placeholder="(DDD) 00000-0000"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="tipotelefone">Tipo de Telefone</label>
-                                <select class="form-control" id="tipotelefone">
-                                    <option value="0">Telefone Celular</option>
-                                    <option value="1">Telefone Fixo</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="datanascimento">Data de Nascimento</label>
-                                <input type="text" class="form-control col datanascimento" id="datanascimento"
-                                    name="datanascimento" minlength="10" maxlength="10" placeholder="Ano/Mês/Dia" autocomplete="off"
-                                    required />
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn btn-primary next-step" id="next-step" style="width: 100%">
-                        Iniciar Cotação
-                    </button>
-                </div>
-                <!-- Fim da Etapa 1-->
-
-                <!-- Etapa 2 -->
-                <div id="step-2" style="display: none" class="form-step">
-                    <h2 class="text-center">Dados de Endereço do Imóvel</h2>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="cep">Cep:</label>
-                                <input type="text" class="form-control col cep" id="cep" name="cep" minlength="8"
-                                    maxlength="8" required />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="logradouro">Endereço:</label>
-                                <input type="text" class="form-control col logradouro" id="logradouro" name="logradouro"
-                                    minlength="1" maxlength="200" required />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="tipo">Tipo de Residência</label>
-                                <select class="form-control tipo" id="tipo">
-                                    <option value="rua">Rua</option>
-                                    <option value="avenida">Avenida</option>
-                                    <option value="praca">Praça</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="numero">Nº do Imóvel</label>
-                                <input type="number" class="form-control col numero" id="numero" name="numero"
-                                    minlength="1" maxlength="9999" pattern="^[0-9]{1,4}$" required />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" class="form-control col bairro" id="bairro" name="bairro"
-                                    minlength="1" maxlength="40" required />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="cidade">Cidade:</label>
-                                <input type="text" class="form-control col cidade" id="cidade" name="cidade"
-                                    minlength="1" maxlength="40" required />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="uf">Estado (UF):</label>
-                            <input type="text" class="form-control col uf" id="uf" name="uf" required />
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn btn-secondary prev-step">
-                        Etapa anterior
-                    </button>
-                    <button type="button" class="btn btn-primary next-step">
-                        Avançar
-                    </button>
-                </div>
-                <!-- Fim da Etapa 2-->
-
-                <!-- Etapa 3 -->
-                <div id="step-3" style="display: none" class="form-step">
-                    <h2 class="text-center">
-                        Agora Você Pode Personalizar o Seu Seguro
-                    </h2>
-                    <!-- Input Cobertura de Incêndio -->
-                    <div class="form-group">
-                        <label for="valorcoberturaincendio">Cobertura de Incêndio:</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control valorcoberturaincendio" id="valorcoberturaincendio"
-                                readonly />
-                            <div class="input-group-append">
-                                <span class="input-group-text">R$</span>
-                            </div>
-                        </div>
-                        <br />
-                        <div id="slider-cobertura"></div>
-                    </div>
-
-                    <button type="button" class="btn btn-secondary prev-step prev-step-3">
-                        Etapa anterior
-                    </button>
-                    <button type="submit" class="btn btn-success submit-form">
-                        Enviar formulário
-                    </button>
-                </div>
-                <!-- Fim da Etapa 3-->
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Prime Secure</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Item1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Item2</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-        </form>
+          </nav>
+    </header>
+
+    <div class="container bg-gradiente">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="background-image">
+                    <!-- Coloque aqui o código HTML da sua imagem com overlay -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <!-- Container Formulário-->
+                    <div class="container container-form col-12 mx-auto">
+                        <form action="#" id="form" method="POST">
+                            <div>
+                                <!-- Inicio da Etapa 1 -->
+                                <div id="step-1" class="form-step active">
+                                    <h2 class="text-center mt-8">Para Iniciar Preencha Seus Dados:</h2>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="cpf">CPF: </label>
+                                                <input type="text" class="form-control col" id="cpf" name="cpf" required
+                                                    minlength="11" maxlength="14" />
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="nome">Nome:</label>
+                                                <input type="text" class="form-control col nome" id="nome" name="nome"
+                                                    minlength="1" maxlength="160" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="numerotelefone">Celular ou Telefone:</label>
+                                                <input type="text" class="form-control col numerotelefone"
+                                                    id="numerotelefone" name="numerotelefone" minlength="10"
+                                                    maxlength="11" placeholder="(DDD) 00000-0000" required />
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="tipotelefone">Tipo de Telefone</label>
+                                                <select class="form-control" id="tipotelefone">
+                                                    <option value="0">Telefone Celular</option>
+                                                    <option value="1">Telefone Fixo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="datanascimento">Data de Nascimento</label>
+                                                <input type="text" class="form-control col datanascimento"
+                                                    id="datanascimento" name="datanascimento" minlength="10"
+                                                    maxlength="10" placeholder="Ano/Mês/Dia" autocomplete="off"
+                                                    required />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary next-step" id="next-step"
+                                        style="width: 100%">
+                                        Iniciar Cotação
+                                    </button>
+                                </div>
+                                <!-- Fim da Etapa 1-->
+
+                                <!-- Etapa 2 -->
+                                <div id="step-2" style="display: none" class="form-step">
+                                    <h2 class="text-center">Dados de Endereço do Imóvel</h2>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="cep">Cep:</label>
+                                                <input type="text" class="form-control col cep" id="cep" name="cep"
+                                                    minlength="8" maxlength="8" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="logradouro">Endereço:</label>
+                                                <input type="text" class="form-control col logradouro" id="logradouro"
+                                                    name="logradouro" minlength="1" maxlength="200" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="tipo">Tipo de Residência</label>
+                                                <select class="form-control tipo" id="tipo">
+                                                    <option value="0">Casa</option>
+                                                    <option value="1">Apartamento</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="numero">Nº do Imóvel</label>
+                                                <input type="number" class="form-control col numero" id="numero"
+                                                    name="numero" minlength="1" maxlength="9999" pattern="^[0-9]{1,4}$"
+                                                    required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="bairro">Bairro:</label>
+                                                <input type="text" class="form-control col bairro" id="bairro"
+                                                    name="bairro" minlength="1" maxlength="40" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="cidade">Cidade:</label>
+                                                <input type="text" class="form-control col cidade" id="cidade"
+                                                    name="cidade" minlength="1" maxlength="40" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="uf">Estado (UF):</label>
+                                            <input type="text" class="form-control col uf" id="uf" name="uf" required />
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-secondary prev-step">
+                                        Etapa anterior
+                                    </button>
+                                    <button type="button" class="btn btn-primary next-step" id="next-step">
+                                        Avançar
+                                    </button>
+                                </div>
+                                <!-- Fim da Etapa 2-->
+
+                                <!-- Etapa 3 -->
+                                <div id="step-3" style="display: none" class="form-step">
+                                    <h2 class="text-center">
+                                        Agora Você Pode Personalizar o Seu Seguro
+                                    </h2>
+                                    <!-- Input Cobertura de Incêndio -->
+                                    <div class="form-group">
+                                        <label for="valorcoberturaincendio">Cobertura de Incêndio:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control valorcoberturaincendio"
+                                                id="valorcoberturaincendio" readonly />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">R$</span>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div id="slider-cobertura"></div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-secondary prev-step prev-step-3">
+                                        Etapa anterior
+                                    </button>
+                                    <button type="submit" class="btn btn-success submit-form">
+                                        Enviar formulário
+                                    </button>
+                                </div>
+                                <!-- Fim da Etapa 3-->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fim Container Formulário-->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Fim Container Formulário-->
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -204,7 +240,7 @@
             const formData = new FormData(form);
 
             //define as opções para a requisição
-            const options ={
+            const options = {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer YzIwMGEwNzYtZTZhZC00MGRhLThkYTktMDg0NmFiODkyNzI1OmZkZTRjYzIyLTM0ZWQtNDVlYi04MDZmLWZhNjViZDNjZTY2ZA',
@@ -219,7 +255,7 @@
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-            }else {
+            } else {
                 console.error('Erro na Requisição', response.status, response.statusText);
             }
         }
@@ -227,8 +263,6 @@
         //Adiciona o evento de submit no formulario
         const form = document.querySelector('#form');
         form.addEventListener('submit', submitForm);
-        
-
     </script>
 </body>
 
