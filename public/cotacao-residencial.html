@@ -7,19 +7,17 @@
     <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="./src/css/custom.css" />
 
     <!--Javascript-->
-
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Prime Secure</a>
+                <a class="navbar-brand" href="planos.html">Prime Secure</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -50,11 +48,13 @@
                 <div>
                     <!-- Container Formulário-->
                     <div class="container container-form col-12 mx-auto">
-                        <form action="#" id="form" method="POST">
+                        <form action="planos.html" id="form" method="POST">
                             <div>
                                 <!-- Inicio da Etapa 1 -->
                                 <div id="step-1" class="form-step active">
-                                    <h2 class="text-center mt-8">Para Iniciar Preencha Seus Dados:</h2>
+                                    <h2 class="text-center mt-8">
+                                        Para Iniciar Preencha Seus Dados:
+                                    </h2>
 
                                     <div class="row">
                                         <div class="col">
@@ -97,7 +97,7 @@
                                                 <label for="datanascimento">Data de Nascimento</label>
                                                 <input type="text" class="form-control col datanascimento"
                                                     id="datanascimento" name="datanascimento" minlength="10"
-                                                    maxlength="10" placeholder="Ano/Mês/Dia" autocomplete="off"
+                                                    maxlength="10" placeholder="DD/MM/YYYY" autocomplete="off"
                                                     required />
                                             </div>
                                         </div>
@@ -192,20 +192,51 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="customRange1" class="form-label">Cobertura de
-                                                    Incêndio</label>
-                                                <input type="range" class="form-range" id="customRange1">
-                                                <span class="form-range-count">R$ <span
-                                                        id="valor-cobertura">0</span></span>
+                                                <label for="valorcoberturaincendio" class="form-label">Cobertura de
+                                                    Incêndio:</label>
+                                                <div class="range-container">
+                                                    <input type="range" class="form-range input-coberturas"
+                                                        id="valorcoberturaincendio" min="1" max="10000000000" value="10"
+                                                        step="100000000" />
+                                                    <div class="range-value0">R$ 10.000</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-
-
+                                    <!-- valorCoberturaSubstracaoBens -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="valorcoberturasubstracaobens" class="form-label">Cobertura
+                                                    Substração de Bens:</label>
+                                                <div class="range-container">
+                                                    <input type="range" class="form-range input-coberturas"
+                                                        id="valorcoberturasubstracaobens" min="1" max="10000000000"
+                                                        value="10" step="100000000" />
+                                                    <div class="range-value1">R$ 10.000</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- valorCoberturaPagamentoAluguel -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="valorcoberturapagamentoaluguel" class="form-label">Cobertura
+                                                    Pagamento de Aluguel:</label>
+                                                <div class="range-container">
+                                                    <input type="range" class="form-range input-coberturas"
+                                                        id="valorcoberturapagamentoaluguel" min="1" max="10000000000"
+                                                        value="10" step="100000000" />
+                                                    <div class="range-value2">R$ 10.000</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <button type="button" class="btn btn-secondary prev-step prev-step-3">
                                         Etapa anterior
                                     </button>
+                                    <i class="fa fa-spinner fa-spin loading-icon" style="display: none"></i>
                                     <button type="submit" class="btn btn-success submit-form">
                                         Enviar formulário
                                     </button>
@@ -220,7 +251,6 @@
         </div>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
@@ -233,17 +263,6 @@
     <script src="./src/js/viaCep.js"></script>
 
     <script>
-        var slider = document.getElementById("customRange1");
-        var output = document.getElementById("valor-cobertura");
-        output.innerHTML = slider.value;
-
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        }
-    </script>
-
-    <script>
-
         //Api que guarda os dados do fomulario e envia para uma api com bearer token
         const submitForm = async (event) => {
             event.preventDefault();
@@ -256,7 +275,7 @@
             const options = {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer YzIwMGEwNzYtZTZhZC00MGRhLThkYTktMDg0NmFiODkyNzI1OmZkZTRjYzIyLTM0ZWQtNDVlYi04MDZmLWZhNjViZDNjZTY2ZA',
+                    'Authorization': 'Bearer YzIwMGEwNzYtZTZhZC00MGRhLThkYTktMDg0NmFiODkyNzI1OmM1NjE3YTdmLWNiZTItNDcyNi1iNWQ4LTQ4OWMwM2Q5YzgzNg==',
                 },
                 body: formData
             };
@@ -268,6 +287,8 @@
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
+                // redireciona para a página desejada
+                window.location.replace('planos.html');
             } else {
                 console.error('Erro na Requisição', response.status, response.statusText);
             }
@@ -276,6 +297,30 @@
         //Adiciona o evento de submit no formulario
         const form = document.querySelector('#form');
         form.addEventListener('submit', submitForm);
+    </script>
+
+    <script>
+        const range0 = document.getElementById("valorcoberturaincendio");
+        const rangeValue0 = document.querySelector(".range-value0");
+
+        range0.addEventListener("input", () => {
+            const valor = parseInt(range0.value);
+            rangeValue0.innerHTML = `R$ ${valor}`;
+        });
+        const range1 = document.getElementById("valorcoberturasubstracaobens");
+        const rangeValue1 = document.querySelector(".range-value1");
+
+        range1.addEventListener("input", () => {
+            const valor = parseInt(range1.value);
+            rangeValue1.innerHTML = `R$ ${valor}`;
+        });
+        const range2 = document.getElementById("valorcoberturapagamentoaluguel");
+        const rangeValue2 = document.querySelector(".range-value2");
+
+        range2.addEventListener("input", () => {
+            const valor = parseInt(range2.value);
+            rangeValue2.innerHTML = `R$ ${valor}`;
+        });
     </script>
 </body>
 

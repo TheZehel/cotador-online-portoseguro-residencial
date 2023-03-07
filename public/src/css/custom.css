@@ -121,11 +121,16 @@ input[type=number] {
   }
 }
 
-.form-range-count {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  color: #495057;
+.range-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.range-value {
+  margin-left: 10px;
+}
+
+.input-coberturas {
+  width: 70%;
 }
