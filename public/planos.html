@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="./src/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./src/css/all.min.css">
-    <link rel="stylesheet" href="./src/css/planos.css">
+  <!--CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="./src/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./src/css/all.min.css">
+  <link rel="stylesheet" href="./src/css/planos.css">
 
-    <script src="./src/js/bootstrap.bundle.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+  <script src="./src/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+    integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+    crossorigin="anonymous"></script>
 
-    <title>Escolha o Seu Plano</title>
+  <title>Escolha o Seu Plano</title>
 </head>
-<body>
-    <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
-<section class="pricing py-5">
+<body>
+  <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+  <section class="pricing py-5">
     <div class="container">
       <div class="row">
         <!-- Free Tier -->
-        <div class="col-lg-4">
+        <div class="col-lg-4" id="plano-basico">
           <div class="card mb-5 mb-lg-0">
             <div class="card-body">
               <h5 class="card-title text-muted text-uppercase text-center">Plano 1</h5>
-              <h6 class="card-price text-center">R$0<span class="period">/mês</span></h6>
+              <h6 class="card-price text-center" id="card-price-1">R$0<span class="period">/mês</span></h6>
               <hr>
               <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-fire"></i></span>Cobertura de Incêndio</li>
@@ -99,5 +103,26 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // Recuperar o parâmetro de consulta
+    var listaParcelamento_query = new URLSearchParams(window.location.search).get("listaParcelamento");
+
+    //decodificar a string JSON
+    var listaParcelamento = JSON.parse(decodeURIComponent(listaParcelamento_query));
+
+    //usar o objeto listaParcelamento
+    console.log(listaParcelamento);
+
+    // Percorrer a listaParcelamento e adicionar o valor da parcela ao HTML correspondente
+    for (var i = 0; i < listaParcelamento.length; i++) {
+      var cardId = "card-price-" + (i + 1); // Supondo que o id do primeiro card seja "card-price-1"
+      var valorParcela = i === 0 ? listaParcelamento[i].valorPrimeiraParcela : listaParcelamento[i].valorPrimeiraParcela;
+      var valorDemaisParcelas = i === 0 ? 0 : listaParcelamento[i].valorDemaisParcelas;
+      var cardPrice = document.querySelector("#" + cardId);
+      cardPrice.innerHTML = "R$" + valorParcela + "<span class='period'>/mês</span>";
+    }
+  </script>
 </body>
+
 </html>

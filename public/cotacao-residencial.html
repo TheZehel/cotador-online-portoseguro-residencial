@@ -275,10 +275,424 @@
             const options = {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer YzIwMGEwNzYtZTZhZC00MGRhLThkYTktMDg0NmFiODkyNzI1Ojk3MTk0MWU4LTJlNGYtNDI3Ny05Y2YyLTRkOTNhZGU3NjVlZQ==',
+                    'Authorization': 'Bearer YzIwMGEwNzYtZTZhZC00MGRhLThkYTktMDg0NmFiODkyNzI1OmZlY2Q0ZTM0LWU2Y2UtNDM1MS05ZDdiLTM3YzkyYmJmOWUxNg==',
                 },
                 body: formData
             };
+
+            //constroi a lista de parcelamento para a url
+            const listaParcelamento = [
+                {
+                    "diasValidadeOrcamentoNovo": 15,
+                    "diasValidadeOrcamentoRenovacao": 30,
+                    "diasValidadeOrcamentoEndosso": 15,
+                    "numeroOrcamento": 1658497950279,
+                    "numeroVersaoOrcamento": 1,
+                    "beneficios": {
+                        "titulo": "Objeto 1 P.O.S",
+                        "beneficio": [
+                            {
+                                "titulo": "INCÊNDIO, EXPLOSÃO, FUMAÇA E QUEDA DE AERONAVE",
+                                "texto": "Não há"
+                            }
+                        ]
+                    },
+                    "listaParcelamento": [
+                        {
+                            "codigo": 21,
+                            "descricao": "1 x A VISTA 30 DIAS",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 114.25,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 21,
+                            "descricao": "1 x A VISTA A 10 DIAS",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 114.25,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 21,
+                            "descricao": "1 x A VISTA A 10 DIAS",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 114.25,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "2 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 2,
+                            "valorPrimeiraParcela": 58.53,
+                            "valorDemaisParcelas": 58.54,
+                            "valorIOF": 8.05,
+                            "valorJuros": 2.63,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "3 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 3,
+                            "valorPrimeiraParcela": 39.99,
+                            "valorDemaisParcelas": 39.98,
+                            "valorIOF": 8.24,
+                            "valorJuros": 5.31,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "4 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 4,
+                            "valorPrimeiraParcela": 30.71,
+                            "valorDemaisParcelas": 30.72,
+                            "valorIOF": 8.44,
+                            "valorJuros": 8.02,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "5 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 5,
+                            "valorPrimeiraParcela": 25.16,
+                            "valorDemaisParcelas": 25.17,
+                            "valorIOF": 8.65,
+                            "valorJuros": 10.79,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "6 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 6,
+                            "valorPrimeiraParcela": 21.49,
+                            "valorDemaisParcelas": 21.47,
+                            "valorIOF": 8.86,
+                            "valorJuros": 13.59,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "7 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 7,
+                            "valorPrimeiraParcela": 18.86,
+                            "valorDemaisParcelas": 18.84,
+                            "valorIOF": 9.07,
+                            "valorJuros": 16.44,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "8 x 1.A 10 DIAS, DEMAIS CARNE",
+                            "quantidadeParcelas": 8,
+                            "valorPrimeiraParcela": 16.84,
+                            "valorDemaisParcelas": 16.88,
+                            "valorIOF": 9.28,
+                            "valorJuros": 19.32,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 41,
+                            "descricao": "11 x FRAC.1.A PARCELA CARNE",
+                            "quantidadeParcelas": 11,
+                            "valorPrimeiraParcela": 13.16,
+                            "valorDemaisParcelas": 13.14,
+                            "valorIOF": 9.94,
+                            "valorJuros": 28.23,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "1 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 116.44,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "2 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 2,
+                            "valorPrimeiraParcela": 58.22,
+                            "valorDemaisParcelas": 58.22,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "3 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 3,
+                            "valorPrimeiraParcela": 38.82,
+                            "valorDemaisParcelas": 38.81,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "4 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 4,
+                            "valorPrimeiraParcela": 29.11,
+                            "valorDemaisParcelas": 29.11,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "5 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 5,
+                            "valorPrimeiraParcela": 23.28,
+                            "valorDemaisParcelas": 23.29,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "6 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 6,
+                            "valorPrimeiraParcela": 19.39,
+                            "valorDemaisParcelas": 19.41,
+                            "valorIOF": 8,
+                            "valorJuros": 0,
+                            "valorEncargos": 2.04,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "7 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 7,
+                            "valorPrimeiraParcela": 17.95,
+                            "valorDemaisParcelas": 17.95,
+                            "valorIOF": 8.64,
+                            "valorJuros": 8.42,
+                            "valorEncargos": 2.2,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 52,
+                            "descricao": "8 x ADC, TODAS AS PARCELAS",
+                            "quantidadeParcelas": 8,
+                            "valorPrimeiraParcela": 16.47,
+                            "valorDemaisParcelas": 16.45,
+                            "valorIOF": 9.05,
+                            "valorJuros": 13.86,
+                            "valorEncargos": 2.31,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "1 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 114.25,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "2 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 2,
+                            "valorPrimeiraParcela": 57.12,
+                            "valorDemaisParcelas": 57.13,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "3 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 3,
+                            "valorPrimeiraParcela": 38.09,
+                            "valorDemaisParcelas": 38.08,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "4 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 4,
+                            "valorPrimeiraParcela": 28.57,
+                            "valorDemaisParcelas": 28.56,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "5 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 5,
+                            "valorPrimeiraParcela": 22.85,
+                            "valorDemaisParcelas": 22.85,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "6 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 6,
+                            "valorPrimeiraParcela": 19.05,
+                            "valorDemaisParcelas": 19.04,
+                            "valorIOF": 7.85,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "7 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 7,
+                            "valorPrimeiraParcela": 17.63,
+                            "valorDemaisParcelas": 17.61,
+                            "valorIOF": 8.47,
+                            "valorJuros": 8.42,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 62,
+                            "descricao": "8 x CARTAO DE CREDITO (TODAS PARC.EM CARTAO)",
+                            "quantidadeParcelas": 8,
+                            "valorPrimeiraParcela": 16.16,
+                            "valorDemaisParcelas": 16.14,
+                            "valorIOF": 8.88,
+                            "valorJuros": 13.86,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "1 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 1,
+                            "valorPrimeiraParcela": 108.54,
+                            "valorDemaisParcelas": 0,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "2 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 2,
+                            "valorPrimeiraParcela": 54.27,
+                            "valorDemaisParcelas": 54.27,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "3 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 3,
+                            "valorPrimeiraParcela": 36.18,
+                            "valorDemaisParcelas": 36.18,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "4 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 4,
+                            "valorPrimeiraParcela": 27.15,
+                            "valorDemaisParcelas": 27.13,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "5 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 5,
+                            "valorPrimeiraParcela": 21.7,
+                            "valorDemaisParcelas": 21.71,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "6 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 6,
+                            "valorPrimeiraParcela": 18.09,
+                            "valorDemaisParcelas": 18.09,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "7 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 7,
+                            "valorPrimeiraParcela": 15.48,
+                            "valorDemaisParcelas": 15.51,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        },
+                        {
+                            "codigo": 97,
+                            "descricao": "8 x CARTAO PORTO SEGURO",
+                            "quantidadeParcelas": 8,
+                            "valorPrimeiraParcela": 13.55,
+                            "valorDemaisParcelas": 13.57,
+                            "valorIOF": 7.46,
+                            "valorJuros": 0,
+                            "valorEncargos": 0,
+                            "valorCustoApolice": 0
+                        }
+                    ]
+                }
+            ];
+
+            const listaParcelamento_json = JSON.stringify(listaParcelamento);
+
+            const listaParcelamento_query = encodeURIComponent(listaParcelamento_json);
+
+            //constroi url da página de planos
+            const urlPlanos = "./planos.html?listaParcelamento=" + listaParcelamento_query;
 
             //faz a requisição
             const response = await fetch('https://portoapi-sandbox.portoseguro.com.br/re/residencial/v1/habitual/orcamentos', options);
@@ -288,7 +702,7 @@
                 const data = await response.json();
                 console.log(data);
                 // redireciona para a página desejada
-                window.location.replace('planos.html');
+                window.location.replace(urlPlanos);
             } else {
                 console.error('Erro na Requisição', response.status, response.statusText);
             }
